@@ -1,0 +1,36 @@
+const Banco = {
+  conta: "12345-6",
+  saldo: 1000.0,
+  tipoDeConta: "Corrente",
+  agencia: "0123",
+
+  buscarSaldo: function() {
+    console.log(`Saldo atual: R$ ${this.saldo}`);
+    return this.saldo;
+  },
+
+  deposito: function(valor) {
+    this.saldo += valor;
+    console.log(`Depósito de R$ ${valor} realizado com sucesso. Novo saldo: R$ ${this.saldo}`);
+  },
+
+  saque: function(valor) {
+    if (valor <= this.saldo) {
+      this.saldo -= valor;
+      console.log(`Saque de R$ ${valor} realizado com sucesso. Novo saldo: R$ ${this.saldo}`);
+    } else {
+      console.log("Saldo insuficiente para o saque.");
+    }
+  },
+
+  numeroDaConta: function() {
+    console.log(`Número da conta: ${this.conta}`);
+    return this.conta;
+  }
+};
+
+// Exemplos de uso
+Banco.buscarSaldo(); // Mostra o saldo atual
+Banco.deposito(500);  // Realiza um depósito
+Banco.saque(200);     // Realiza um saque
+Banco.numeroDaConta(); // Mostra o número da conta
